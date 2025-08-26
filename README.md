@@ -7,3 +7,4 @@ Aplicación híbrida SPA para una cafetería estudiantil con funcionalidad offli
 - `Fast-CoffeStudents/js/`: Scripts de la SPA.
 - `Fast-CoffeStudents/css/`: Estilos CSS.
 - `Fast-CoffeStudents/imgs/`: Recursos visuales.
+- `Fast-CoffeStudents/index.html`:
