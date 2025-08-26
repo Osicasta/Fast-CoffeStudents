@@ -1,9 +1,44 @@
 // Estado de la aplicación
 let cart = [];
 
+// Productos disponibles (deben coincidir con los de carrito.js)
+const productos = [
+    { id: 1, nombre: "Tinto", precio: 1000, imagen: "img/tinto.jpg" },
+    { id: 2, nombre: "Café con leche", precio: 2000, imagen: "img/cafeLeche.jpg" },
+    { id: 3, nombre: "Capuchino", precio: 3000, imagen: "img/capuchino.jpg" },
+    { id: 4, nombre: "Jugo de naranja", precio: 2500, imagen: "img/jugoNaranja.jpg" },
+    { id: 5, nombre: "Limonada", precio: 2000, imagen: "img/limonada.jpg" },
+    { id: 6, nombre: "Smoothie de fresa", precio: 3500, imagen: "img/smoothieFresa.jpg" },
+    { id: 7, nombre: "Torta de chocolate", precio: 3000, imagen: "img/tortaChocolate.jpg" },
+    { id: 8, nombre: "Galletas", precio: 1500, imagen: "img/galletaChoco.jpg" },
+    { id: 9, nombre: "Muffin", precio: 2000, imagen: "img/muffin.jpg" },
+    { id: 10, nombre: "Sandwich de jamón", precio: 4000, imagen: "img/sandwichJamon.jpg" },
+    { id: 11, nombre: "Sandwich de pollo", precio: 4500, imagen: "img/sandwichPollo.jpg" },
+    { id: 12, nombre: "Sandwich vegetariano", precio: 3800, imagen: "img/sandwichVegetariano.jpg" }
+];
+
+// Obtener carrito del localStorage
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+// Guardar carrito en localStorage
+function setCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Actualizar contador del carrito en el icono
+function updateCartCount() {
+    const cart = getCart();
+    const count = cart.reduce((acc, item) => acc + item.cantidad, 0);
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) cartCount.textContent = count;
+}
+
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
+    updateCartCount(); // Inicializar contador al cargar
 });
 
 // Configurar event listeners
@@ -16,28 +51,38 @@ function setupEventListeners() {
         });
     });
 
-    // Navegación inferior
-    document.querySelectorAll('.nav-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Aquí puedes agregar la lógica para cambiar entre vistas
-            if (button.textContent === "Mi Pedido") {
-                mostrarCarrito();
-            } else if (button.textContent === "Reseñas") {
-                mostrarResenas();
-            } else {
-                mostrarMenu();
-            }
-        });
-    });
+document.getElementById('footerMenu').addEventListener('click', function() {
+  window.location.href = 'menu.html';
+});
+document.getElementById('footerPedido').addEventListener('click', function() {
+  window.location.href = 'pedido.html';
+});
 
     // Eventos para botones de agregar al carrito
     document.querySelectorAll('.add-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productId = parseInt(e.target.getAttribute('data-id'));
-            addToCart(productId, e.target);
+        button.addEventListener('click', function(e) {
+            const id = parseInt(this.getAttribute('data-id'));
+            const producto = productos.find(p => p.id === id);
+            if (!producto) return;
+
+            let cart = getCart();
+            const idx = cart.findIndex(item => item.id === id);
+            if (idx !== -1) {
+                cart[idx].cantidad += 1;
+            } else {
+                cart.push({ id: producto.id, cantidad: 1 });
+            }
+            setCart(cart);
+            updateCartCount();
+
+            // Feedback visual
+            const originalText = button.textContent;
+            button.textContent = "¡Agregado!";
+            button.style.background = "#28a745";
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = "#393939";
+            }, 1200);
         });
     });
 }

@@ -1,0 +1,126 @@
+.pedido-top-bar {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 14px 18px 0 18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: #fff;
+}
+
+.pedido-back-btn {
+  text-decoration: none;
+  font-size: 1.7rem;
+  color: #393939;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.pedido-back-btn:hover {
+  background: #d6d6d6;
+}
+
+.pedido-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 18px;
+}
+
+.pedido-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.pedido-bag-icon {
+  font-size: 5rem;
+  margin-bottom: 24px;
+  margin-top: 10px;
+}
+
+.pedido-ready-btn {
+  background: #fff;
+  border: 1.5px solid #ffffff;
+  color: #3d2c0b;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: default;
+  margin-top: 10px;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+  border-top: 1px solid #eee;
+  z-index: 10;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #777;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.nav-btn.active {
+  color: #393939;
+  font-weight: 500;
+}
+
+/* Footer estilo menuStart.css */
+.menu-btns.footer-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #ede7f6;
+  padding: 12px 0 10px 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+  z-index: 20;
+}
+
+.menu-btns.footer-btns .btn {
+  width: 180px;
+  padding: 12px 0;
+  background: #393939;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  opacity: 0.8;
+}
+
+.menu-btns.footer-btns .btn:hover,
+.menu-btns.footer-btns .btn.active,
+.menu-btns.footer-btns .btn:focus {
+  background: #5a4a2b;
+  opacity: 1;
+}

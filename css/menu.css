@@ -16,6 +16,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+    margin-top: 60px; /* para no tapar el contenido con la barra superior */
 }
 
 header {
@@ -183,6 +184,57 @@ header h1 {
 
 .mention-item:last-child {
     border-bottom: none;
+}
+
+/* Top Bar */
+.top-bar {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px 0 18px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background: #f8f9fa;
+}
+
+.back-link, .cart-link {
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: #393939;
+    background: #ececec;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.back-link:hover, .cart-link:hover {
+    background: #d6d6d6;
+}
+
+.cart-link {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: #393939;
+    color: #fff;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Media Queries */
