@@ -1,3 +1,6 @@
+import '../../css/menu.css';
+import '../../css/style.css';
+
 // Estado de la aplicación
 let cart = [];
 

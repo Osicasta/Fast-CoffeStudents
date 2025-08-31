@@ -1,3 +1,6 @@
+import '../../css/pedido.css';
+import '../../css/style.css';
+
 // Navegación del footer y resaltar botón activo
 document.addEventListener('DOMContentLoaded', function() {
     // Remover clase active de todos los botones primero

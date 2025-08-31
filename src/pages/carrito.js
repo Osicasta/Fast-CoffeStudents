@@ -1,3 +1,6 @@
+import '../../css/carrito.css';
+import '../../css/style.css';
+
 // Productos de ejemplo (deberían coincidir con los de menu.js)
 const productos = [
   { id: 1, nombre: "Tinto", precio: 1000, imagen: "img/tinto.jpg" },

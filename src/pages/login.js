@@ -1,3 +1,6 @@
+import '../../css/login.css';
+import '../../css/style.css';
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const email = document.getElementById('email').value.trim();

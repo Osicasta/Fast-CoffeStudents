@@ -1,16 +1,18 @@
 {
   "name": "fast-coffestudents",
   "version": "1.0.0",
-  "description": "Aplicación híbrida SPA para una cafetería estudiantil con funcionalidad offline. Este proyecto fue desarrollado con énfasis en rendimiento, usabilidad y diseño centrado en estudiantes universitarios.",
-  "main": "index.js",
+  "description": "Aplicación híbrida SPA para una cafetería estudiantil con funcionalidad offline. Desarrollado con Vite, énfasis en rendimiento, usabilidad y diseño centrado en estudiantes universitarios.",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --open"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Osicasta/Fast-CoffeStudents.git"
   },
-  "keywords": [],
+  "keywords": ["vite","cafeteria","universidad","pwa","spa"],
   "author": "",
   "license": "ISC",
   "bugs": {

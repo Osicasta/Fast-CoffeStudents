@@ -1,3 +1,6 @@
+import '../../css/menuStart.css';
+import '../../css/style.css';
+
 document.getElementById('menuBtn').addEventListener('click', function() {
   window.location.href = 'menu.html';
 });
