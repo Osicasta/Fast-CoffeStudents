@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iniciar Sesión | SNACKADEMIA</title>
-</head>
-<body>
-  <div class="login-header">
-    <img src="img/logo2.png" alt="Logo Snackademia" class="logo" />
-    <h1 class="title">SNACKADEMIA</h1>
-  </div>
-  <div class="login-container">
-    <form id="loginForm">
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Value" required />
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" placeholder="Value" required />
-      <button class="btn" id="loginBtn">Sign In</button>
-    </form>
-    <a href="resetpassword.html" class="forgot-link">¿Olvidaste tu contraseña?</a>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión | SNACKADEMIA</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="menu-container">
+    <button class="back-btn" onclick="window.history.back()">&#8592;</button>
+    <div class="menu-header">
+      <img src="img/logo2.png" alt="Logo Snackademia" class="logo" />
+      <h1 class="title">SNACKADEMIA</h1>
+    </div>
+    <div class="login-container">
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Value" required />
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Value" required />
+        <button class="btn" id="loginBtn">Sign In</button>
+      </form>
+      <a href="resetpassword.html" class="forgot-link">¿Olvidaste tu contraseña?</a>
+    </div>
   </div>
 
-  <!-- Vite script -->
-  <script type="module" src="/src/pages/login.js"></script>
-</body>
-</html>
+    <!-- Vite script -->
+    <script type="module" src="/src/pages/login.js"></script>
+  </body>
+  </html>

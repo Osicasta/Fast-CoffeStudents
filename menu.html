@@ -1,196 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Snackademia - Menú Universitario</title>
+  <link rel="stylesheet" href="css/menu.css" />
 </head>
 <body>
-  <div class="top-bar">
-    <a href="menuStart.html" class="back-link" title="Volver">&#8592;</a>
-    <a href="carrito.html" class="cart-link" id="cart-link" title="Ver carrito">
-      <span class="cart-icon">🛒</span>
-      <span class="cart-count">0</span>
-    </a>
-  </div>
+  <!-- Contenedor principal (tarjeta) -->
+  <div class="pedido-container" role="main" aria-label="Tarjeta principal del menú">
 
-  <div class="container">
-    <header>
+    <!-- Top bar (dentro de la tarjeta) -->
+    <div class="top-bar">
+      <a href="menuStart.html" class="back-link" title="Volver" aria-label="Volver">&#8592;</a>
+
+      <a href="carrito.html" class="cart-link" id="cart-link" title="Ver carrito" aria-label="Ver carrito">
+        <span class="cart-icon" aria-hidden="true">🛒</span>
+        <span class="cart-count" aria-live="polite">0</span>
+      </a>
+    </div>
+
+    <!-- Header / título -->
+    <header class="page-header">
       <h1>¿Qué quieres pedir hoy?</h1>
     </header>
 
-    <div class="categories">
-      <button class="category-btn active" data-category="bebidas-calientes">Bebidas calientes</button>
-      <button class="category-btn" data-category="bebidas-frias">Bebidas frías</button>
-      <button class="category-btn" data-category="postres">Postres</button>
-      <button class="category-btn" data-category="sandwiches">Sandwiches</button>
-    </div>
+    <!-- Navegación de categorías -->
+    <nav class="categories" role="tablist" aria-label="Categorías del menú">
+      <button type="button" class="category-btn active" data-category="bebidas-calientes">Bebidas calientes</button>
+      <button type="button" class="category-btn" data-category="bebidas-frias">Bebidas frías</button>
+      <button type="button" class="category-btn" data-category="postres">Postres</button>
+      <button type="button" class="category-btn" data-category="sandwiches">Sandwiches</button>
+    </nav>
 
-    <!-- Sección de Bebidas Calientes -->
-    <div class="menu-grid" id="bebidas-calientes">
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/tinto.jpg" alt="Tinto" />
-        </div>
-        <div class="item-info">
-          <div class="item-title">Tinto</div>
-          <div class="item-price">$1000</div>
-          <button class="add-btn" data-id="1">Agregar</button>
-        </div>
-      </div>
+    <!-- Contenido (scrollable si hace falta) -->
+    <main class="content" tabindex="0">
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/cafeLeche.jpg" alt="Café con leche" />
+      <!-- Bebidas Calientes -->
+      <section class="menu-grid" id="bebidas-calientes" aria-labelledby="cat-bebidas-calientes">
+        <div class="menu-item">
+          <div class="item-image"><img src="img/tinto.jpg" alt="Tinto"></div>
+          <div class="item-info">
+            <div class="item-title">Tinto</div>
+            <div class="item-price">$1000</div>
+            <button type="button" class="add-btn" data-id="1">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Café con leche</div>
-          <div class="item-price">$2000</div>
-          <button class="add-btn" data-id="2">Agregar</button>
-        </div>
-      </div>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/capuchino.jpg" alt="Capuchino" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/cafeLeche.jpg" alt="Café con leche"></div>
+          <div class="item-info">
+            <div class="item-title">Café con leche</div>
+            <div class="item-price">$2000</div>
+            <button type="button" class="add-btn" data-id="2">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Capuchino</div>
-          <div class="item-price">$3000</div>
-          <button class="add-btn" data-id="3">Agregar</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Sección de Bebidas Frías (oculta inicialmente) -->
-    <div class="menu-grid" id="bebidas-frias" style="display:none;">
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/jugoNaranja.jpg" alt="Jugo de naranja" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/capuchino.jpg" alt="Capuchino"></div>
+          <div class="item-info">
+            <div class="item-title">Capuchino</div>
+            <div class="item-price">$3000</div>
+            <button type="button" class="add-btn" data-id="3">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Jugo de naranja</div>
-          <div class="item-price">$2500</div>
-          <button class="add-btn" data-id="4">Agregar</button>
-        </div>
-      </div>
+      </section>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/limonada.jpg" alt="Limonada" />
+      <!-- Bebidas Frías (inicialmente oculta) -->
+      <section class="menu-grid" id="bebidas-frias" style="display:none;" aria-hidden="true">
+        <div class="menu-item">
+          <div class="item-image"><img src="img/jugoNaranja.jpg" alt="Jugo de naranja"></div>
+          <div class="item-info">
+            <div class="item-title">Jugo de naranja</div>
+            <div class="item-price">$2500</div>
+            <button type="button" class="add-btn" data-id="4">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Limonada</div>
-          <div class="item-price">$2000</div>
-          <button class="add-btn" data-id="5">Agregar</button>
-        </div>
-      </div>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/smoothieFresa.jpg" alt="Smoothie de fresa" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/limonada.jpg" alt="Limonada"></div>
+          <div class="item-info">
+            <div class="item-title">Limonada</div>
+            <div class="item-price">$2000</div>
+            <button type="button" class="add-btn" data-id="5">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Smoothie de fresa</div>
-          <div class="item-price">$3500</div>
-          <button class="add-btn" data-id="6">Agregar</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Sección de Postres (oculta inicialmente) -->
-    <div class="menu-grid" id="postres" style="display:none;">
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/tortaChocolate.jpg" alt="Torta de chocolate" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/smoothieFresa.jpg" alt="Smoothie de fresa"></div>
+          <div class="item-info">
+            <div class="item-title">Smoothie de fresa</div>
+            <div class="item-price">$3500</div>
+            <button type="button" class="add-btn" data-id="6">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Torta de chocolate</div>
-          <div class="item-price">$3000</div>
-          <button class="add-btn" data-id="7">Agregar</button>
-        </div>
-      </div>
+      </section>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/galletaChoco.jpg" alt="Galletas" />
+      <!-- Postres (oculta inicialmente) -->
+      <section class="menu-grid" id="postres" style="display:none;" aria-hidden="true">
+        <div class="menu-item">
+          <div class="item-image"><img src="img/tortaChocolate.jpg" alt="Torta de chocolate"></div>
+          <div class="item-info">
+            <div class="item-title">Torta de chocolate</div>
+            <div class="item-price">$3000</div>
+            <button type="button" class="add-btn" data-id="7">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Galletas</div>
-          <div class="item-price">$1500</div>
-          <button class="add-btn" data-id="8">Agregar</button>
-        </div>
-      </div>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/muffin.jpg" alt="Muffin" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/galletaChoco.jpg" alt="Galletas"></div>
+          <div class="item-info">
+            <div class="item-title">Galletas</div>
+            <div class="item-price">$1500</div>
+            <button type="button" class="add-btn" data-id="8">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Muffin</div>
-          <div class="item-price">$2000</div>
-          <button class="add-btn" data-id="9">Agregar</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Sección de Sandwiches (oculta inicialmente) -->
-    <div class="menu-grid" id="sandwiches" style="display:none;">
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/sandwichJamon.jpg" alt="Sandwich de jamón" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/muffin.jpg" alt="Muffin"></div>
+          <div class="item-info">
+            <div class="item-title">Muffin</div>
+            <div class="item-price">$2000</div>
+            <button type="button" class="add-btn" data-id="9">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Sandwich de jamón</div>
-          <div class="item-price">$4000</div>
-          <button class="add-btn" data-id="10">Agregar</button>
-        </div>
-      </div>
+      </section>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/sandwichPollo.jpg" alt="Sandwich de pollo" />
+      <!-- Sandwiches (oculta inicialmente) -->
+      <section class="menu-grid" id="sandwiches" style="display:none;" aria-hidden="true">
+        <div class="menu-item">
+          <div class="item-image"><img src="img/sandwichJamon.jpg" alt="Sandwich de jamón"></div>
+          <div class="item-info">
+            <div class="item-title">Sandwich de jamón</div>
+            <div class="item-price">$4000</div>
+            <button type="button" class="add-btn" data-id="10">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Sandwich de pollo</div>
-          <div class="item-price">$4500</div>
-          <button class="add-btn" data-id="11">Agregar</button>
-        </div>
-      </div>
 
-      <div class="menu-item">
-        <div class="item-image">
-          <img src="img/sandwichVegetariano.jpg" alt="Sandwich vegetariano" />
+        <div class="menu-item">
+          <div class="item-image"><img src="img/sandwichPollo.jpg" alt="Sandwich de pollo"></div>
+          <div class="item-info">
+            <div class="item-title">Sandwich de pollo</div>
+            <div class="item-price">$4500</div>
+            <button type="button" class="add-btn" data-id="11">Agregar</button>
+          </div>
         </div>
-        <div class="item-info">
-          <div class="item-title">Sandwich vegetariano</div>
-          <div class="item-price">$3800</div>
-          <button class="add-btn" data-id="12">Agregar</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Sección de menciones y reseñas -->
-    <div class="mentions-section">
-      <h2 class="section-title">Mención</h2>
-      <div class="mention-item">
-        <h3>Midecimiento</h3>
-        <p>Nuestro sistema de calidad garantiza productos frescos y deliciosos.</p>
-      </div>
-      <div class="mention-item">
-        <h3>Reseñas</h3>
-        <p>Calificación promedio: ⭐⭐⭐⭐☆ (4.2/5 basado en 128 reseñas)</p>
-      </div>
-    </div>
+        <div class="menu-item">
+          <div class="item-image"><img src="img/sandwichVegetariano.jpg" alt="Sandwich vegetariano"></div>
+          <div class="item-info">
+            <div class="item-title">Sandwich vegetariano</div>
+            <div class="item-price">$3800</div>
+            <button type="button" class="add-btn" data-id="12">Agregar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menciones y reseñas -->
+      <section class="mentions-section" aria-label="Menciones y reseñas">
+        <h2 class="section-title">Mención</h2>
+
+        <div class="mention-item">
+          <h3>Midecimiento</h3>
+          <p>Nuestro sistema de calidad garantiza productos frescos y deliciosos.</p>
+        </div>
+
+        <div class="mention-item">
+          <h3>Reseñas</h3>
+          <p>Calificación promedio: ⭐⭐⭐⭐☆ (4.2/5 basado en 128 reseñas)</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (dentro de la tarjeta) -->
+    <footer class="bottom-nav" role="navigation" aria-label="Navegación inferior">
+      <button type="button" class="nav-btn" id="footerMenu">Menú</button>
+      <button type="button" class="nav-btn active" id="footerPedido">Mi Pedido</button>
+      <button type="button" class="nav-btn" id="footerResenas">Reseñas</button>
+    </footer>
   </div>
 
-  <div class="bottom-nav">
-    <button class="nav-btn" id="footerMenu">Menú</button>
-    <button class="nav-btn active" id="footerPedido">Mi Pedido</button>
-    <button class="nav-btn" id="footerResenas">Reseñas</button>
-  </div>
-
-  <!-- Vite script -->
-  <script type="module" src="/src/pages/menu.js"></script>
+  <!-- Script -->
+  <script src="src/pages/menu.js"></script>
 </body>
 </html>
