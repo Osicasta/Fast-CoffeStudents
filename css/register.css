@@ -2,15 +2,12 @@ body{
     background: #ffffff;
 }
 
-.register-header {
+
+.register-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 32px;
-  margin-bottom: 18px;
-}
-
-.register-container {
+  justify-content: center;
   background: #fff;
   border: 1.5px solid #ececec;
   border-radius: 12px;
@@ -18,6 +15,16 @@ body{
   margin: 0 auto;
   padding: 24px 18px 18px 18px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.register-header img {
+  margin-bottom: 12px;
+}
+
+.register-header h1 {
+  font-size: 1.5rem;
+  color: #393939;
+  margin-bottom: 24px;
 }
 
 #registerForm {
