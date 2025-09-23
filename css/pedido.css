@@ -1,98 +1,94 @@
-/* Ya no deben ser fijos */
-.pedido-top-bar {
+/* pedido.css — Footer sticky igual al de Menú */
+
+/* =========================
+   Reset y tipografía
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+:root { --page-pad: 20px; }
+
+/* =========================
+   Layout base
+   ========================= */
+body{
+  background: #f3f4f6;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  /* sin padding-bottom para que no quede hueco bajo el footer */
+  padding: 0 0 0;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+.app{
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto; /* contenido + footer */
+  position: relative;
+  padding: var(--page-pad) var(--page-pad) 0;  
+}
+
+/* =========================
+   Contenedor principal (tarjeta)
+   ========================= */
+.pedido-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;                 /* tu ancho para Pedido */
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 6px rgba(61,44,11,0.08);
+  padding: 20px;
+  margin: 0 auto;                   /* centrado horizontal */
+  position: relative;               /* para overlays si los hay */
+  overflow: visible;                /* no recortar (no romper sticky) */
+}
+
+/* =========================
+   Top bar
+   ========================= */
+.pedido-top-bar{
   width: 100%;
   display: flex;
   align-items: center;
   padding: 10px 0;
   margin-bottom: 10px;
-  background: transparent; /* Se funde con el contenedor */
-  position: relative; /* No fijo */
+  background: transparent;
+  position: relative;
 }
 
-.pedido-back-btn {
+.pedido-back-btn{
   text-decoration: none;
   font-size: 1.5rem;
   color: #393939;
   background: #f5f5f5;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
 }
+.pedido-back-btn:hover{ background: #d6d6d6; }
 
-.pedido-back-btn:hover {
-  background: #d6d6d6;
+/* =========================
+   Encabezado / contenido
+   ========================= */
+.pedido-header{
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; margin-bottom: 20px;
 }
+.logo{ width: 100px; margin-bottom: 12px; }
+.title{ color: #3d2c0b; font-size: 1.7rem; font-weight: 700; margin: 0; letter-spacing: 2px; }
 
-/* Contenedor principal sigue igual */
-.pedido-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between; /* separa top, main y footer */
-  min-height: 500px;
-  max-width: 320px;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 6px rgba(61,44,11,0.08);
-  padding: 20px;
-  margin: 40px auto;
-}
+.pedido-main{ width: 100%; }
 
-/* Footer ahora dentro del contenedor */
-.bottom-nav {
-  background: transparent; /* sin fondo extra */
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 0.8rem 0;
-  border-top: 1px solid #eee;
-  position: relative; /* no fijo */
-  box-shadow: none;
-  margin-top: auto; /* empuja abajo */
-}
-
-.nav-btn {
-  background: none;
-  border: none;
-  color: #777;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.nav-btn.active {
-  color: #393939;
-  font-weight: 500;
-}
-
-.pedido-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 100px;
-  margin-bottom: 12px;
-}
-
-.title {
-  color: #3d2c0b;
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin: 0;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-.pedido-message {
+.pedido-message{
   text-align: center;
   background: #f5f5f5;
   color: #393939;
@@ -106,52 +102,73 @@
   font-weight: 500;
 }
 
+/* =============== Resumen del pedido =============== */
+.order-title { margin: 10px 0 6px; font-size: 1rem; }
+.order-empty { text-align: center; color: #777; margin-top: 8px; }
+
+.order-row{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; padding: 8px; border-radius: 8px; background: #fafafa; margin-bottom: 8px;
+}
+.order-left{ display: flex; flex-direction: column; }
+.order-name{ font-size: .95rem; }
+.order-sub{ color: #555; font-size: .9rem; }
+.order-line{ font-weight: 700; }
+
+.order-total{
+  display: flex; justify-content: space-between; align-items: center; margin-top: 6px;
+}
+
 /* =========================
-   Resumen del pedido (order-*)
+   Footer sticky (fuera de la tarjeta) — IGUAL A MENÚ
    ========================= */
-.order-title { 
-  margin: 10px 0 6px; 
-  font-size: 1rem; 
+.bottom-nav{
+  position: sticky;
+  bottom: 0;
+  /* full-bleed robusto: estira al ancho del viewport */
+  left: 0;
+  right: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: auto;
+  box-sizing: border-box;
+  background: #ffffff; /* tu color de prueba */
+  z-index: 20;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+  /* padding interno + safe area */
+  padding-top: 10px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  padding-left: 16px;
+  padding-right: 16px;
+
+  border-top: 1px solid #f0f0f0;
 }
 
-.order-empty { 
-  text-align: center; 
-  color: #777; 
-  margin-top: 8px; 
+
+
+
+.nav-btn{
+  background: none;
+  border: none;
+  color: #777;
+  padding: 8px 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+.nav-btn.active{
+  color: #393939;
+  font-weight: 600;
+  background: rgba(57,57,57,0.06);
 }
 
-.order-row {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between;
-  gap: 8px; 
-  padding: 8px; 
-  border-radius: 8px; 
-  background: #fafafa; 
-  margin-bottom: 8px;
-}
-
-.order-left { 
-  display: flex; 
-  flex-direction: column; 
-}
-
-.order-name { 
-  font-size: .95rem; 
-}
-
-.order-sub  { 
-  color: #555; 
-  font-size: .9rem; 
-}
-
-.order-line { 
-  font-weight: 700; 
-}
-
-.order-total {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  margin-top: 6px;
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 360px){
+  .pedido-container{ max-width: 340px; } /* opcional */
 }
