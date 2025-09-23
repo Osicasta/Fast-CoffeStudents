@@ -114,11 +114,19 @@ function setupEventListeners() {
         });
     }
     if (footerResenas) {
-        footerResenas.addEventListener('click', () => {
-            mostrarResenas();
-            setActiveFooterButton(footerResenas);
-        });
+    footerResenas.addEventListener('click', () => {
+        const path = window.location.pathname.split('/').pop().toLowerCase();
+        const target = 'resenas.html'; // usa 'reseñas.html' si tu archivo tiene tilde
+        if (path !== target) {
+        // usa replace para no apilar historial si quieres
+        // location.replace(target);
+        window.location.href = target;
+        } else {
+        setActiveFooterButton(footerResenas);
+        }
+    });
     }
+
 
     // Enlace del carrito (icono superior) — sigue abriendo la mini-vista del carrito
     const cartLink = document.getElementById('cart-link');
@@ -136,8 +144,7 @@ function setupEventListeners() {
             // Si quieres que navegue a otra página, cambia aquí.
             // Por defecto hace history.back() si hay historial, si no va a menuStart.html
             e.preventDefault();
-            if (window.history.length > 1) window.history.back();
-            else window.location.href = backLink.getAttribute('href') || 'menuStart.html';
+            window.location.href = 'menuStart.html';
         });
     }
 }
@@ -448,12 +455,35 @@ function mostrarCarrito() {
 
     continueBtn.addEventListener('click', () => overlay.remove());
     checkout.addEventListener('click', () => {
-        // Si tienes página pedido.html para checkout, navega:
-        // window.location.href = 'pedido.html';
-        // Por ahora mostramos un mensaje y cerramos modal
-        overlay.remove();
-        alert('Aquí se procesaría el pago / pedido (implementa checkout).');
+    const currentCart = getCart();
+    if (!currentCart.length) {
+        alert('Tu carrito está vacío.');
+        return;
+    }
+
+    const total = currentCart.reduce((s, it) => s + (it.precio * it.cantidad), 0);
+
+    // Guardar para pedido.html
+    const order = {
+        id: 'ORD-' + Date.now(),
+        items: currentCart,            // [{ id, nombre, precio, cantidad }, ...]
+        total,
+        createdAt: new Date().toISOString(),
+        status: 'pendiente'
+    };
+    localStorage.setItem('lastOrder', JSON.stringify(order));
+
+    // Limpiar carrito y contador
+    setCart([]);
+    updateCartCount();
+
+    // Cerrar modal (opcional: overlay.remove(); igual navegará)
+    // overlay.remove();
+
+    // Ir a la vista de pedido
+    window.location.href = 'pedido.html';
     });
+
 
     overlay.appendChild(modal);
     container.appendChild(overlay);

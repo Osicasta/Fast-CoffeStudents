@@ -2,8 +2,10 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: '.',
+  base: './',          // importante para que funcione en Android (assets)
   build: {
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         index: resolve(__dirname, 'index.html'),
@@ -14,9 +16,8 @@ export default defineConfig({
         register: resolve(__dirname, 'register.html'),
         resetpassword: resolve(__dirname, 'resetpassword.html'),
         carrito: resolve(__dirname, 'carrito.html'),
+        resenas:    resolve(__dirname, 'resenas.html'),
       }
-    },
-    outDir: 'dist',
-    emptyOutDir: true
+    }
   }
 });

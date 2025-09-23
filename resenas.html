@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reseñas | SNACKADEMIA</title>
+</head>
+<body>
+  <div class="pedido-container">
+    
+    <!-- Top bar -->
+    <div class="pedido-top-bar">
+      <a href="menu.html" class="pedido-back-btn" title="Volver" aria-label="Volver">←</a>
+    </div>
+
+    <!-- Encabezado -->
+    <div class="pedido-header">
+      <img src="img/logo2.png" alt="Logo Snackademia" class="logo" />
+      <h1 class="title">SNACKADEMIA</h1>
+    </div>
+
+    <!-- Lista de reseñas -->
+    <main class="resenas-main" role="main" aria-label="Lista de reseñas">
+      <h2 class="resenas-title">Reseñas</h2>
+      <div id="reviewsList" class="reviews-list"></div>
+    </main>
+
+    <!-- Footer (mismo diseño que pedido) -->
+    <div class="bottom-nav">
+      <button class="nav-btn" id="footerMenu">Menú</button>
+      <button class="nav-btn" id="footerPedido">Mi Pedido</button>
+      <button class="nav-btn active" id="footerResenas">Reseñas</button>
+    </div>
+  </div>
+
+  <script type="module" src="src/pages/resenas.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@ body{
 
 
 .register-container {
+  position: relative;              /* <- clave para que .back-btn se posicione relativo al card */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +17,7 @@ body{
   padding: 24px 18px 18px 18px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
+
 
 .register-header img {
   margin-bottom: 12px;
@@ -54,9 +56,10 @@ body{
 }
 
 .btn {
-  width: 100%;
+  display: block;
+  width: min(220px, 100%);         /* ancho agradable y responsivo */
+  margin: 12px auto 0;             /* centra horizontalmente */
   padding: 12px 0;
-  margin-top: 10px;
   background: #393939;
   color: #fff;
   border: none;
@@ -65,7 +68,40 @@ body{
   cursor: pointer;
   transition: background 0.2s;
 }
+.btn:hover { background: #5a4a2b; }
 
-.btn:hover {
-  background: #5a4a2b;
+.back-btn {
+    position: absolute;
+    top: 15px;    /* Ajusta según lo que quieras */
+    left: 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    color: #393939;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+.back-btn:hover {
+    background-color: #e0e0e0;
+  } 
+
+#registerForm input.is-invalid {
+  border-color: #ef4444;          /* rojo suave */
+  background: #fff5f5;
+}
+
+.error-msg {
+  display: block;
+  min-height: 18px;               /* reserva espacio para que no “salte” el layout */
+  color: #b91c1c;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 0.875rem;
 }

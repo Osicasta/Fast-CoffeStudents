@@ -6,8 +6,7 @@ document.getElementById('menuBtn').addEventListener('click', function() {
 });
 
 document.getElementById('reviewsBtn').addEventListener('click', function() {
-  // Redirigir a la página de reseñas (ajusta el nombre si es necesario)
-  alert('Ir a reseñas (demo)');
+window.location.href = 'resenas.html';
 });
 
 document.getElementById('orderBtn').addEventListener('click', function() {

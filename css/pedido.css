@@ -6,7 +6,7 @@
   padding: 10px 0;
   margin-bottom: 10px;
   background: transparent; /* Se funde con el contenedor */
-  position: relative; /* 🔹 No fijo */
+  position: relative; /* No fijo */
 }
 
 .pedido-back-btn {
@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* 🔹 separa top, main y footer */
+  justify-content: space-between; /* separa top, main y footer */
   min-height: 500px;
   max-width: 320px;
   background: #fff;
@@ -44,15 +44,15 @@
 
 /* Footer ahora dentro del contenedor */
 .bottom-nav {
-  background: transparent; /* 🔹 sin fondo extra */
+  background: transparent; /* sin fondo extra */
   display: flex;
   justify-content: space-around;
   width: 100%;
   padding: 0.8rem 0;
   border-top: 1px solid #eee;
-  position: relative; /* 🔹 no fijo */
+  position: relative; /* no fijo */
   box-shadow: none;
-  margin-top: auto; /* 🔹 empuja abajo */
+  margin-top: auto; /* empuja abajo */
 }
 
 .nav-btn {
@@ -104,4 +104,54 @@
   margin: 20px auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   font-weight: 500;
+}
+
+/* =========================
+   Resumen del pedido (order-*)
+   ========================= */
+.order-title { 
+  margin: 10px 0 6px; 
+  font-size: 1rem; 
+}
+
+.order-empty { 
+  text-align: center; 
+  color: #777; 
+  margin-top: 8px; 
+}
+
+.order-row {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  gap: 8px; 
+  padding: 8px; 
+  border-radius: 8px; 
+  background: #fafafa; 
+  margin-bottom: 8px;
+}
+
+.order-left { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.order-name { 
+  font-size: .95rem; 
+}
+
+.order-sub  { 
+  color: #555; 
+  font-size: .9rem; 
+}
+
+.order-line { 
+  font-weight: 700; 
+}
+
+.order-total {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 6px;
 }
