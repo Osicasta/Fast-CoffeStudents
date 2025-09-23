@@ -4,33 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reseñas | SNACKADEMIA</title>
+  <link rel="stylesheet" href="css/resenas.css" />
 </head>
 <body>
-  <div class="pedido-container">
-    
-    <!-- Top bar -->
-    <div class="pedido-top-bar">
-      <a href="menu.html" class="pedido-back-btn" title="Volver" aria-label="Volver">←</a>
+  <div class="app">
+    <!-- Tarjeta / contenido -->
+    <div class="pedido-container">
+      <!-- Top bar -->
+      <div class="pedido-top-bar">
+        <a href="menu.html" class="pedido-back-btn" title="Volver" aria-label="Volver">←</a>
+      </div>
+
+      <!-- Encabezado -->
+      <div class="pedido-header">
+        <img src="img/logo2.png" alt="Logo Snackademia" class="logo" />
+        <h1 class="title">SNACKADEMIA</h1>
+      </div>
+
+      <!-- Lista de reseñas -->
+      <main class="resenas-main" role="main" aria-label="Lista de reseñas">
+        <h2 class="resenas-title">Reseñas</h2>
+        <div id="reviewsList" class="reviews-list"></div>
+      </main>
     </div>
 
-    <!-- Encabezado -->
-    <div class="pedido-header">
-      <img src="img/logo2.png" alt="Logo Snackademia" class="logo" />
-      <h1 class="title">SNACKADEMIA</h1>
-    </div>
-
-    <!-- Lista de reseñas -->
-    <main class="resenas-main" role="main" aria-label="Lista de reseñas">
-      <h2 class="resenas-title">Reseñas</h2>
-      <div id="reviewsList" class="reviews-list"></div>
-    </main>
-
-    <!-- Footer (mismo diseño que pedido) -->
-    <div class="bottom-nav">
+    <!-- Footer sticky fuera de la tarjeta -->
+    <nav class="bottom-nav" role="navigation" aria-label="Navegación inferior">
       <button class="nav-btn" id="footerMenu">Menú</button>
       <button class="nav-btn" id="footerPedido">Mi Pedido</button>
       <button class="nav-btn active" id="footerResenas">Reseñas</button>
-    </div>
+    </nav>
   </div>
 
   <script type="module" src="src/pages/resenas.js"></script>

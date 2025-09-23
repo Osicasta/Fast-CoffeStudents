@@ -1,84 +1,132 @@
-/* Contenedor/card (igual estilo que pedido) */
-.pedido-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 500px;
-  max-width: 320px;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 6px rgba(61,44,11,0.08);
-  padding: 20px;
-  margin: 40px auto;
+/* Reset / base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+:root { --page-pad: 20px; }
+
+body{
+  background:#f3f4f6;
+  color:#333;
+  line-height:1.6;
+  margin:0;
+  /* igual que menú: padding lateral, sin padding abajo */
+  padding: var(--page-pad) var(--page-pad) 0;
+  min-height:100svh;
+  overflow-x:hidden;
+}
+
+/* Wrapper: contenido + footer sticky */
+.app{
+  min-height:100svh;
+  display:grid;
+  grid-template-rows: 1fr auto;  /* contenido crece, footer al fondo */
+}
+
+/* ---------------- Tarjeta / Contenido ---------------- */
+.pedido-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  max-width:320px;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.08), 0 1.5px 6px rgba(61,44,11,0.08);
+  padding:20px;
+  margin:0 auto;              /* centrada */
+  position:relative;
+  overflow:visible;
 }
 
 /* Top bar */
-.pedido-top-bar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  background: transparent;
-  position: relative;
+.pedido-top-bar{
+  width:100%;
+  display:flex;
+  align-items:center;
+  padding:10px 0;
+  margin-bottom:10px;
+  background:transparent;
+  position:relative;
 }
-
-.pedido-back-btn {
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: #393939;
-  background: #f5f5f5;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
+.pedido-back-btn{
+  text-decoration:none;
+  font-size:1.5rem;
+  color:#393939;
+  background:#f5f5f5;
+  border-radius:50%;
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
 }
-.pedido-back-btn:hover { background: #d6d6d6; }
+.pedido-back-btn:hover{ background:#d6d6d6; }
 
 /* Header */
-.pedido-header {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  margin-bottom: 16px;
+.pedido-header{
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  margin-bottom:16px;
 }
-.logo { width: 100px; margin-bottom: 12px; }
-.title { color:#3d2c0b; font-size:1.7rem; font-weight:700; margin:0; letter-spacing:2px; }
-
-/* Footer (mismo estilo que pedido) */
-.bottom-nav {
-  background: transparent;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 0.8rem 0;
-  border-top: 1px solid #eee;
-  position: relative;
-  box-shadow: none;
-  margin-top: auto;
-}
-.nav-btn { background:none; border:none; color:#777; padding:.5rem 1rem; cursor:pointer; font-size:.9rem; }
-.nav-btn.active { color:#393939; font-weight:500; }
+.logo{ width:100px; margin-bottom:12px; }
+.title{ color:#3d2c0b; font-size:1.7rem; font-weight:700; margin:0; letter-spacing:2px; }
 
 /* Reseñas */
-.resenas-main { width:100%; }
-.resenas-title { font-size:1.1rem; font-weight:700; margin: 0 0 10px 0; text-align:center; }
-
-.reviews-list { display:flex; flex-direction:column; gap:12px; }
-
-.review-item {
+.resenas-main{ width:100%; }
+.resenas-title{ font-size:1.1rem; font-weight:700; margin:0 0 10px 0; text-align:center; }
+.reviews-list{ display:flex; flex-direction:column; gap:12px; }
+.review-item{
   display:flex; gap:12px; align-items:center;
   padding:10px; border-radius:12px; background:#faf6fb; border:1px solid #eee;
 }
-.review-thumb {
-  width:56px; height:56px; border-radius:12px; background:#e9e9ee; object-fit:cover;
-}
-.review-meta { display:flex; flex-direction:column; gap:4px; flex:1; }
-.review-title { font-weight:600; }
-.review-stars { color:#5a5560; font-size:0.95rem; letter-spacing:1px; }
-.review-text { color:#5b5b5b; font-size:.9rem; }
+.review-thumb{ width:56px; height:56px; border-radius:12px; background:#e9e9ee; object-fit:cover; }
+.review-meta{ display:flex; flex-direction:column; gap:4px; flex:1; }
+.review-title{ font-weight:600; }
+.review-stars{ color:#5a5560; font-size:.95rem; letter-spacing:1px; }
+.review-text{ color:#5b5b5b; font-size:.9rem; }
+.review-divider{ height:1px; background:#eaeaea; }
 
-/* Divider opcional */
-.review-divider { height:1px; background:#eaeaea; }
+/* ---------------- Footer sticky full-bleed (idéntico a Menú) ---------------- */
+.bottom-nav{
+  position: sticky;
+  bottom: 0;
+
+  /* full-bleed robusto: rellena de borde a borde del viewport */
+  left: 0;
+  right: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: auto;
+  box-sizing: border-box;
+
+  background:#fff;
+  z-index:20;
+  box-shadow:0 -2px 5px rgba(0,0,0,0.1);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  gap:8px;
+
+  /* padding interno + safe area */
+  padding-top:10px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  padding-left:16px;
+  padding-right:16px;
+
+  border-top:1px solid #eee;
+}
+
+.nav-btn{
+  background:none;
+  border:none;
+  color:#777;
+  padding:.5rem 1rem;
+  cursor:pointer;
+  font-size:.9rem;
+  border-radius:8px;
+}
+.nav-btn.active{
+  color:#393939;
+  font-weight:600;
+  background: rgba(57,57,57,0.06);
+}
+
+/* Responsive opcional */
+@media (max-width:360px){
+  .pedido-container{ max-width:340px; }
+}
